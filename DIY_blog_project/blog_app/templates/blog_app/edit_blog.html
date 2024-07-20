@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    Edit blog
+{% endblock %}
+
+{% block content %}
+    <h1 class="content_title">Edit blog</h1>
+    <div class="content_inner">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Update</button>
+        </form>
+        <form action="{% url 'blog_app:deleted' pk %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+{% endblock %}

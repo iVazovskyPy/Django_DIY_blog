@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,10 +7,43 @@
             Base title
         {% endblock %}
     </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    {% block body %}
-        Base body
-    {% endblock %}
+    <div class='wrapper'>
+        <div class='links_wrapper'>
+            {% block base_links %}
+                <div class="link_setup">
+                    <a class='link' href='{% url "blog_app:index" %}'>Home</a>
+                    <a class='link' href='{% url "blog_app:all_blogs" %}'>All blogs</a>
+                    <a class='link' href='{% url "blog_app:bloggers" %}'>All bloggers</a>
+                    {% if request.user.is_authenticated %}
+                        <a class='link' href='{% url "blog_app:profile" %}'>My profile</a>
+                    {% endif %}
+                </div>
+            {% endblock %}
+            {% block in_out %}
+                <div class="login_logout_set" >
+                    {% if request.user.is_authenticated %}
+                        <div class="display_username">Username: {{ request.user.first_name }}</div>
+                        <form method="post" action="{% url 'blog_app:logout' %}">
+                            {% csrf_token %}
+                            <button type="submit">logout</button>
+                        </form>
+                    {% else %}
+                        <a class='link' href="{% url 'blog_app:login' %}">Sing in</a>
+                        <a class='link' href="{% url 'blog_app:registration' %}">Sign up</a>
+                    {% endif %}
+                </div>
+            {% endblock %}
+        </div>
+        <div class='content'>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
 </body>
 </html>

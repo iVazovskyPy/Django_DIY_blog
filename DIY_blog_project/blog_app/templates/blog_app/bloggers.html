@@ -4,9 +4,16 @@
     Bloggers
 {% endblock %}
 
-{% block body %}
-    <h1>Bloggers</h1>
-    {% for blogger in bloggers %}
-        <p><a href="{% url 'blog_app:blogger' blogger.user.pk %}">{{ blogger.user.username }}</a></p>
-    {% endfor %}
+{% block content %}
+    <h1 class="content_title">All bloggers</h1>
+    <ul>
+        {% for blogger in bloggers %}
+            <li><a class='blog' href="{% url 'blog_app:blogger' blogger.pk %}">{{ blogger }}</a></li>
+        {% endfor %}
+    </ul>
+    <nav class='navigation'>
+        {% for p in bloggers.paginator.page_range %}
+            <a href="?page={{ p }}">{{ p }}</a>
+        {% endfor %}
+    </nav>
 {% endblock %}

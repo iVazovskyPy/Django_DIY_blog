@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    Edit profile
+{% endblock %}
+
+{% block content %}
+    <h1 class="content_title">Edit profile</h1>
+    <form class='content_inner' method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+{% endblock %}

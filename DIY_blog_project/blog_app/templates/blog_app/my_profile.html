@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block content %}
+    <h1 class="content_title">Profile</h1>
+    <div class="content_inner">
+        <b>Username:</b> {{ profile.user }}
+        <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
+        {% if profile.profile_photo %}
+            <p><img class="profile_photo" src="{{ profile.profile_photo.url }}" alt="Profile photo"></p>
+        {% else %}
+            <p><img class="profile_photo" src="/media/profile_photos/default.jpg" alt="Default photo"></p>
+        {% endif %}
+        <p><b>Phone:</b> +{{ profile.phone_number }}</p>
+        <p><b>Bio:</b> {{ profile.bio }}</p>
+        <a class="link" href="{% url 'blog_app:edit_profile' %}">Edit profile data</a>
+        <p><b>Blogs:</b></p>
+        {% if blogs %}
+            <ul>
+                {% for blog in blogs %}
+                    <li><a class="link" href="{% url 'blog_app:edit_blog' blog.pk %}">{{ blog }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            &emsp;&emsp;Not posted yet
+        {% endif %}
+        <a class="link" href="{% url 'blog_app:add_blog' %}">Add blog</a>
+    </div>
+{% endblock %}

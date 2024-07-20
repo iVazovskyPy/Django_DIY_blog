@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    Deleted
+{% endblock %}
+
+{% block content %}
+    <h1 class="content_title">Blog has been deleted</h1>
+    <div class="content_inner">
+        Blog has been successfully deleted
+    </div>
+{% endblock %}

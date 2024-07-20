@@ -4,24 +4,29 @@
     {{ blog.name }}
 {% endblock %}
 
-{% block body %}
-    <h1>{{ blog.name }}</h1>
-    <p><b>Post date</b>: {{ blog.publication_date }}</p>
-    <p><b>Author</b>: {{ blog.blogger.username }}</p>
-    <p><b>Description</b>: {{ blog.content }}</p>
-    <br><br>
-    <p>Comments</p>
-    <ul>
-        {% for comment in comments %}
-            <li>{{ comment.user.username }} ({{ comment.publication_date }}) - {{ comment.description }}</li>
-        {% endfor %}
-    </ul>
-    {% if request.user.is_authenticated %}
-        <a href="{% url 'blog_app:comment' blog.pk %}">Add a new comment</a><br><br>
-    {% endif %}
-    {% if blogger %}
-        <a href="{% url 'blog_app:blogger' blogger.pk %}">Back to {{ blogger.username }}</a>
+{% block content %}
+    <h1 class="content_title">{{ blog.name }}</h1>
+    <div class="content_inner">
+        <p><b>Post date</b>: {{ blog.publication_date }}</p>
+        <p><b>Author</b>: {{ blog.blogger.username }}</p>
+        <p><b>Description</b>: {{ blog.content }}</p>
         <br><br>
-    {% endif %}
-    <a href="{% url 'blog_app:all_blogs' %}">All blogs</a>
+        {% if comments %}
+            <p>Comments</p>
+            <ul>
+                {% for comment in comments %}
+                    <li>{{ comment.user.username }} ({{ comment.publication_date }}) - {{ comment.description }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No comments yet</p>
+        {% endif %}
+        {% if request.user.is_authenticated %}
+            <a class="content_inner_links" href="{% url 'blog_app:comment' blog.pk %}">Add a new comment</a><br><br>
+        {% endif %}
+        {% if blogger %}
+            <a class="content_inner_links" href="{% url 'blog_app:blogger' blogger.pk %}">{{ blogger.username }}</a>
+            <br><br>
+        {% endif %}
+    </div>
 {% endblock %}

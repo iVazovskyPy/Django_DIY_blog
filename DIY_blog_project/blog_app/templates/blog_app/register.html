@@ -4,9 +4,9 @@
     Регистрация
 {% endblock %}
 
-{% block body %}
-    <h1>Blog app - registration page</h1>
-    <form method="post" enctype="multipart/form-data">
+{% block content %}
+    <h1 class="content_title">Registration</h1>
+    <form class='content_inner' method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ user_form.as_p }}
         <button type="submit">Create</button>

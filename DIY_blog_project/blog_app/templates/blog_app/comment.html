@@ -5,13 +5,13 @@
 {% endblock %}
 
 
-{% block body %}
-  <h1>Add comment</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Submit</button>
-  </form>
-  <br>
-  <a href="{% url 'blog_app:blog' pk %}">Back to blog</a>
+{% block content %}
+    <h1 class="content_title">Add comment</h1>
+    <form method="post" class="content_inner">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <a class="content_inner_links" href="{% url 'blog_app:blog' pk %}">Back to blog</a>
 {% endblock %}

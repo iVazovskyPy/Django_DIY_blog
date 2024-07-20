@@ -1,7 +1,139 @@
-base_links {
-    color: red;
+.wrapper {
+    height: 100%;
+    width: auto;
+    display: flex;
+    margin: 1%, 2%;
+    padding: 5px;
+    background-color: transparent;
 }
 
-a {
-    color: red;
+.links_wrapper {
+    background-color: transparent;
+    width: auto;
+}
+
+.link_setup {
+    width: 200px;
+    height: 100px;
+    padding: 5px;
+    color: yellow;
+    text-align: left;
+    vertical-align: middle;
+    background-color: transparent;
+}
+
+.link {
+    display: block;
+    text-align: left;
+    max-width: auto;
+    height: 20px;
+    margin: 5px;
+    margin-right: 20px;
+    background-color: transparent;
+    text-decoration: none;
+    color: #0071c5;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+
+.login_logout_set {
+    text-align: left;
+    vertical-align: middle;
+    width: 200px;
+    height: auto;
+    padding: 5px;
+    margin-top: 5px;
+    text-align: left;
+    vertical-align: middle;
+    background-color: transparent;
+}
+
+.display_username {
+    margin: 5px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.content {
+    height: auto;
+    width: 80%;
+    margin-left: 5px;
+    background-color: transparent;
+}
+
+.content_title {
+    font-size: 50px;
+    margin: 5px;
+    background-color: transparent;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.navigation {
+    margin-left: 5%;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.blog {
+    display: inline-block;
+    background-color: transparent;
+    color: #0071c5;
+    margin: 3px 70% 3px 10px;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.content_inner {
+    background-color: white;
+    font-family: "Inter", sans-serif;
+    width: auto;
+    height: auto;
+    margin: 5px;
+}
+
+.content_inner_links {
+    display: inline-flex;
+    text-align: left;
+    max-width: auto;
+    height: 20px;
+    margin: 5px;
+    margin-right: 20px;
+    background-color: transparent;
+    text-decoration: none;
+    color: #0071c5;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.profile_photo {
+    width: 12%;
+    height: 17%;
+    background-size: cover;
 }

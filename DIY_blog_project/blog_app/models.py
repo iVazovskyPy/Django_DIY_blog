@@ -13,7 +13,7 @@ class Profile(BaseModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.CharField(max_length=1000)
     phone_number = models.IntegerField()
-    profile_photo = models.ImageField(null=True, blank=True, upload_to='profile_photos/')
+    profile_photo = models.ImageField(upload_to='profile_photos/', null=True, blank=True)
 
 
 class Blog(BaseModel):

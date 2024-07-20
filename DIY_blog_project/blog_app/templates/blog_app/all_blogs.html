@@ -4,13 +4,16 @@
     All blogs
 {% endblock %}
 
-{% block body %}
-    <ul>
-        {% for obj in page_obj %}
-            <p>{{ obj }}</p>
-        {% endfor %}
-    </ul>
-    <nav>
+{% block content %}
+    <h1 class='content_title'>All blogs</h1>
+    <div style="vertical-align: middle; height: auto; width: auto; margin: 5px">
+        <ul>
+            {% for obj in page_obj %}
+                <li><a class='blog' href="{% url 'blog_app:blog' obj.pk %}">{{ obj }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <nav class='navigation'>
         {% for p in page_obj.paginator.page_range %}
             <a href="?page={{ p }}">{{ p }}</a>
         {% endfor %}

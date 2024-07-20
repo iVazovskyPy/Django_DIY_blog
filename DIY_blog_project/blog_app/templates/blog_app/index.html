@@ -1,21 +1,11 @@
 {% extends 'blog_app/base.html' %}
 
-{% block title %}
-    Главная страница
-{% endblock %}
-
-{% block body %}
-    {% if request.user.is_anonymous %}
-        <a href="{% url 'blog_app:login' %}">Sign in</a><br>
-        <a href="{% url 'blog_app:registration' %}">Sign up</a>
-    {% else %}
-        <a href="{% url 'blog_app:logout' %}">Sign out</a>
-    {% endif %}
-    <h1>Blog app - main page</h1>
-    <p>Hello {% firstof request.user.first_name 'Guest' %} {{ request.user.last_name }}</p>
-    {% if messages %}
-        {% for message in messages %}
-            <small style='color:green'>{{ message }}</small>
-        {% endfor %}
-    {% endif %}
+{% block content %}
+    <h1 class="content_title">Homepage</h1>
+    <div class="content_inner">
+        The project was created as a design work to solve the tasks indicated on the site
+        <a style="text-decoration: none; color: #0071c5; font-family: 'Inter', sans-serif;" href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/django_assessment_blog">
+            developer.mozilla.org
+        </a>
+    </div>
 {% endblock %}
