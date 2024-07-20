@@ -1,0 +1,21 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block body %}
+    {% if request.user.is_anonymous %}
+        <a href="{% url 'blog_app:login' %}">Sign in</a><br>
+        <a href="{% url 'blog_app:registration' %}">Sign up</a>
+    {% else %}
+        <a href="{% url 'blog_app:logout' %}">Sign out</a>
+    {% endif %}
+    <h1>Blog app - main page</h1>
+    <p>Hello {% firstof request.user.first_name 'Guest' %} {{ request.user.last_name }}</p>
+    {% if messages %}
+        {% for message in messages %}
+            <small style='color:green'>{{ message }}</small>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

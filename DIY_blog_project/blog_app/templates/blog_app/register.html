@@ -1,0 +1,14 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    Регистрация
+{% endblock %}
+
+{% block body %}
+    <h1>Blog app - registration page</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+{% endblock %}

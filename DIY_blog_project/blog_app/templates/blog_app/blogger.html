@@ -1,0 +1,17 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    {{ author.username }}
+{% endblock %}
+
+{% block body %}
+    <h1><b>Blogger: {{ blogger.user.username }}</b></h1>
+    <p>{{ blogger.user.first_name }} {{ blogger.user.last_name }}</p>
+    <h2>Bio: {{ blogger.bio }}</h2>
+    <ul>
+        {% for blog in blogs %}
+            <li><a href="{% url 'blog_app:blog' blog.pk blogger.pk %}">{{ blog }}</a> ({{ blog.publication_date }})</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'blog_app:bloggers' %}">Back to bloggers</a>
+{% endblock %}

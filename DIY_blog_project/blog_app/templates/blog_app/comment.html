@@ -1,0 +1,17 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+  Add comment
+{% endblock %}
+
+
+{% block body %}
+  <h1>Add comment</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Submit</button>
+  </form>
+  <br>
+  <a href="{% url 'blog_app:blog' pk %}">Back to blog</a>
+{% endblock %}

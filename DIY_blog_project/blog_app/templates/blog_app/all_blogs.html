@@ -1,0 +1,18 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    All blogs
+{% endblock %}
+
+{% block body %}
+    <ul>
+        {% for obj in page_obj %}
+            <p>{{ obj }}</p>
+        {% endfor %}
+    </ul>
+    <nav>
+        {% for p in page_obj.paginator.page_range %}
+            <a href="?page={{ p }}">{{ p }}</a>
+        {% endfor %}
+    </nav>
+{% endblock %}
